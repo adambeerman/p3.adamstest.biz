@@ -31,3 +31,7 @@ $('.button').click(function(){
 
     }
 });
+
+$(function() {
+    $( ".button" ).draggable();
+});

@@ -34,4 +34,57 @@
     line-height: 3em;
     background-color: white;
     cursor: pointer;
+
 }
+
+td {
+    background-color: lightgray;
+    margin: 1px;
+    width: 150px;
+}
+
+td:first-child{
+    text-emphasis: black;
+    font-size: 18px;
+    background-color: white;
+    margin-right: 10px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+thead th:first-child, tfoot th:first-child{
+    text-align: right;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+tfoot{
+    color: dimgray;
+}
+
+span, .editable_field {
+    cursor: pointer;
+}
+
+#error_message {
+    color: red;
+}
+
+#margin_alert {
+    color: red;
+}
+
+.active {
+    color: blue;
+    background-color: yellow;
+}
+span {
+    float: right;
+}
+input {
+    text-align: right;
+    width: 140px;
+}
+
+.dollars:before { content:'$'; }
+
