@@ -76,3 +76,7 @@ $("#income_statement").on('keydown', 'input', function(e) {
 
 //Calculate when a calculated_field is clicked.
 $(".calculated_field").on("click", storeFigures);
+
+$('span').change(function(){
+    $("#margin_alert").html("Span Field has changed!");
+});

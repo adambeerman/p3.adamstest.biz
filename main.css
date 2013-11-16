@@ -88,3 +88,25 @@ input {
 
 .dollars:before { content:'$'; }
 
+.blank {
+    background-color: white;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.top_border td{
+    border-top: 1px solid black;
+}
+.bottom_border td{
+    border-bottom: 1px solid black;
+}
+.italic {
+    font-style: italic;
+}
+
+input:focus{
+    border-style: solid;
+    border-color: black;
+}
