@@ -83,7 +83,7 @@ span {
 }
 input {
     text-align: right;
-    width: 140px;
+    width: 145px;
 }
 
 .dollars:before { content:'$'; }
@@ -107,6 +107,9 @@ input {
 }
 
 input:focus{
-    border-style: solid;
-    border-color: black;
+
+}
+
+.expandable {
+    font-size: 50%;
 }

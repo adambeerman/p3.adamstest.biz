@@ -30,13 +30,21 @@
             </tfoot>
             <tbody>
 
+
+
             <tr>
                 <td class = "italic">Revenue</td>
                 <td class = "blank"></td>
             </tr>
+
+
             <tr>
                 <td>component</td>
-                <td id = "revenue_comp_1" class = "editable_field"><span>Enter Amt</span></td>
+                <td id = "revenue_comp_1" class = "editable_field 1"><input placeholder="Revenue" name="revenue_comp_1"></td>
+            </tr>
+            <tr class = "new_row">
+                <td></td>
+                <td class = "expandable blank 2"><span>[+]</span></td>
             </tr>
 
             <tr>
@@ -50,7 +58,7 @@
             </tr>
             <tr>
                 <td>component</td>
-                <td id = "cos_comp_1" class = "editable_field"><span>Enter Amt</span></td>
+                <td id = "cos_comp_1" class = "editable_field"><input placeholder="Cost of Sales" name="cos_comp_1"></td>
             </tr>
             <tr>
                 <td class = "total">Total Cost of Sales</td>

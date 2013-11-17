@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
+/*  On Hold - not yet necessary to convert a text field to a clickable input
 var switchToInput = function () {
     //create variable $input that contains the previous text contents
     var $input = $("<input>", {
@@ -37,8 +38,45 @@ var switchToSpan = function () {
 
 // Change to input field when clicked
 $(".editable_field").on("click", switchToInput);
+*/
 
+var incrementClass = function($currentClass) {
+    //Can only do single digit modifications!!!
+    // Need to add functionality to move beyond 9.
 
+    //Current number class
+    var old_class = Number($currentClass);
+    var new_class = old_class+1;
+    return new_class.toString();
+
+}
+
+$('.expandable').click(function(){
+    //Increment up the class and then add the new row before this row
+    //$(this).removeClass("expandable");
+    var myClass = $(this).attr("class");
+
+    var len = myClass.length-1;
+    console.log("length " + len);
+
+    //Extract the first element of the current class to determine what the new row will be called
+    var nth_row = Number(myClass.charAt(len));
+
+    $(this).switchClass(myClass.charAt(len),incrementClass(myClass.charAt(len)));
+    console.log($(this).attr("class"));
+
+    //Create the new row to add with the unique ID and class number
+    var $row =
+        "<tr class = 'hidden'>" +
+        "<td>component " + nth_row  + "</td>" +
+        "<td id = 'revenue_comp_"+nth_row+"' class = '"+nth_row+" editable_field'>" +
+        "<input placeholder='Revenue' name='revenue_comp_"+nth_row+"'></td>" +
+        "</tr>";
+
+    //Insert the new row before the expandable section
+    $(this).parent().before($row);
+
+});
 
 var storeFigures = function(){
 
