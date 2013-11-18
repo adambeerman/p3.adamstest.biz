@@ -39,7 +39,7 @@
 
 
             <tr>
-                <td>component</td>
+                <td class = "editable_field"><span>Component</span></td>
                 <td id = "revenue_comp_1" class = "editable_field 1"><input placeholder="Revenue" name="revenue_comp_1"></td>
             </tr>
             <tr class = "new_row">

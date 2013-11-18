@@ -37,8 +37,11 @@
 
 }
 
+th {
+    text-decoration: underline;
+}
 td {
-    background-color: lightgray;
+    /*background-color: lightgray;*/
     margin: 1px;
     width: 150px;
 }
@@ -59,7 +62,7 @@ thead th:first-child, tfoot th:first-child{
 }
 
 tfoot{
-    color: dimgray;
+    /*color: dimgray;*/
 }
 
 span, .editable_field {

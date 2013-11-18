@@ -6,7 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-/*  On Hold - not yet necessary to convert a text field to a clickable input
 var switchToInput = function () {
     //create variable $input that contains the previous text contents
     var $input = $("<input>", {
@@ -19,7 +18,6 @@ var switchToInput = function () {
 
     //revert back to span when leaving the field
     $input.on("blur", switchToSpan);
-
 };
 
 var switchToSpan = function () {
@@ -28,17 +26,17 @@ var switchToSpan = function () {
         text: $(this).val()
     });
 
-
     $span.addClass("editable_field");
-    $span.addClass("dollars");
     $(this).replaceWith($span);
+
     //When clicked again, the span will change to input
     $span.on("click", switchToInput);
+
 }
 
 // Change to input field when clicked
 $(".editable_field").on("click", switchToInput);
-*/
+
 
 var incrementClass = function($currentClass) {
     //Can only do single digit modifications!!!
@@ -53,22 +51,22 @@ var incrementClass = function($currentClass) {
 
 $('.expandable').click(function(){
     //Increment up the class and then add the new row before this row
-    //$(this).removeClass("expandable");
     var myClass = $(this).attr("class");
 
+    // Determine the length of the 'class' string - functionality only works for single digits.
     var len = myClass.length-1;
     console.log("length " + len);
 
     //Extract the first element of the current class to determine what the new row will be called
     var nth_row = Number(myClass.charAt(len));
 
+    //Increment the class number on the expandable row
     $(this).switchClass(myClass.charAt(len),incrementClass(myClass.charAt(len)));
-    console.log($(this).attr("class"));
 
     //Create the new row to add with the unique ID and class number
     var $row =
         "<tr class = 'hidden'>" +
-        "<td>component " + nth_row  + "</td>" +
+        "<td class = 'editable_field'><span>(click to rename)</span></td>" +
         "<td id = 'revenue_comp_"+nth_row+"' class = '"+nth_row+" editable_field'>" +
         "<input placeholder='Revenue' name='revenue_comp_"+nth_row+"'></td>" +
         "</tr>";
@@ -76,7 +74,18 @@ $('.expandable').click(function(){
     //Insert the new row before the expandable section
     $(this).parent().before($row);
 
+    //Allow clicks of the editable field to allow user to modify the name
+    $(".editable_field").on("click", switchToInput);
+
 });
+
+// CALCULATION OF ALL THE REVENUE COMPONENTS //
+var calcRevenue = function(){
+    var rev_items = document.getElementsByName("rev_comp_1");
+    var rev_item_count = rev_items.length;
+    console.log(rev_items);
+
+}
 
 var storeFigures = function(){
 

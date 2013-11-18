@@ -10,8 +10,8 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384101399242" ignored="false" />
     <file path="/index.html" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1383858968316" ignored="false" />
-    <file path="/index.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384709636756" ignored="false" />
-    <file path="/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384711418576" ignored="false" />
+    <file path="/index.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384713653260" ignored="false" />
+    <file path="/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384729249122" ignored="false" />
     <file path="/calculator.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1383881168755" ignored="false" />
     <file path="$PROJECT_DIR$/../p2.adamstest.biz/controllers/c_posts.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384016543213" ignored="false" />
     <file path="/functions.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384025558960" ignored="false" />
@@ -21,7 +21,7 @@
     <file path="$PROJECT_DIR$/../card-o-matic/index.html" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384088886916" ignored="false" />
     <file path="$PROJECT_DIR$/../card-o-matic/css/features.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384089318150" ignored="false" />
     <file path="/features.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384089304995" ignored="false" />
-    <file path="/income.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384713132433" ignored="false" />
+    <file path="/income.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384784560940" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="29" selection-start="1122" selection-end="1122" vertical-scroll-proportion="-11.25">
+            <state line="20" column="23" selection-start="436" selection-end="436" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="1619" selection-end="1619" vertical-scroll-proportion="0.0">
+            <state line="40" column="30" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,10 +71,8 @@
       <file leaf-file-name="income.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/income.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="36" selection-start="2168" selection-end="2175" vertical-scroll-proportion="0.68125">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="81" column="47" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.71875">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,8 +117,8 @@
         <option value="$PROJECT_DIR$/calculator.js" />
         <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/stocks.js" />
-        <option value="$PROJECT_DIR$/main.css" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/main.css" />
         <option value="$PROJECT_DIR$/income.js" />
       </list>
     </option>
@@ -332,26 +330,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.css">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="1619" selection-end="1619" vertical-scroll-proportion="0.0">
+        <state line="20" column="23" selection-start="436" selection-end="436" vertical-scroll-proportion="-7.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="29" selection-start="1122" selection-end="1122" vertical-scroll-proportion="-11.25">
+        <state line="40" column="30" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/income.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="36" selection-start="2168" selection-end="2175" vertical-scroll-proportion="0.68125">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="81" column="47" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.71875">
+          <folding />
         </state>
       </provider>
     </entry>
