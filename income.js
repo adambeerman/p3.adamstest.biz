@@ -49,13 +49,31 @@ var incrementClass = function($currentClass) {
 
 }
 
+
+
 $('.expandable').click(function(){
     //Increment up the class and then add the new row before this row
     var myClass = $(this).attr("class");
 
+    var new_class = $(this.previousElementSibling).attr("class");
+    switch(new_class) {
+        case "rev": new_class = "revenue";
+            var placeholder = "Revenue";
+            break;
+        case "cost": new_class = "cos";
+            var placeholder = "Cost of Sales";
+            break;
+        case "opex": new_class = "op_ex";
+            var placeholder = "Operating Expense";
+            break;
+        case "otherex": new_class = "other_ex";
+            var placeholder = "Other Expenses";
+        default:
+            break;
+    }
+
     // Determine the length of the 'class' string - functionality only works for single digits.
     var len = myClass.length-1;
-    console.log("length " + len);
 
     //Extract the first element of the current class to determine what the new row will be called
     var nth_row = Number(myClass.charAt(len));
@@ -67,8 +85,8 @@ $('.expandable').click(function(){
     var $row =
         "<tr class = 'hidden'>" +
         "<td class = 'editable_field'><span>(click to rename)</span></td>" +
-        "<td id = 'revenue_comp_"+nth_row+"' class = '"+nth_row+" editable_field'>" +
-        "<input placeholder='Revenue' name='revenue_comp_"+nth_row+"'></td>" +
+        "<td class = '"+nth_row+"'>" +
+        "<input placeholder='"+placeholder +"' class = '" + new_class + "'></td>" +
         "</tr>";
 
     //Insert the new row before the expandable section
@@ -79,13 +97,51 @@ $('.expandable').click(function(){
 
 });
 
-// CALCULATION OF ALL THE REVENUE COMPONENTS //
-var calcRevenue = function(){
-    var rev_items = document.getElementsByName("rev_comp_1");
-    var rev_item_count = rev_items.length;
-    console.log(rev_items);
+$('#revenue').click(function(){
+    //Find the items that have revenue as a calss
+    var items = document.getElementsByClassName("revenue");
+    var count = items.length;
+    var i, sum = 0;
+    for(i = 0; i<count; i++){
+        sum += parseFloat(items[i].value);
+    }
+    //Keep the Revenue figure if no numbers entered
+    if(isNaN(sum)){
+        $('#revenue').html("Revenue");
+    }
+    //Replace the #revenue html with the sum of the figures
+    else {
+        $('#revenue').html(sum);
+    }
+});
 
-}
+$('#cos').click(function(){
+    //Find the items that have cos as a class
+    var items = document.getElementsByClassName("cos");
+    var count = items.length;
+    var i, sum = 0;
+    for(i = 0; i<count; i++){
+        sum += parseFloat(items[i].value);
+    }
+    //Keep the class figure if no numbers entered
+    if(isNaN(sum)){
+        $('#cos').html("Cost of Sales");
+    }
+    //Replace the #class html with the sum of the figures
+    else {
+        $('#class').html(sum);
+    }
+});
+
+
+//Tab to the next field
+// Unsure why this is working for me - I did not set the tab key to work as an "onkeyup"
+$('input').keyup(function(e) {
+    if (e.keyCode==9) {
+        console.log("Tab pressed!");
+        $(this).next('input').focus();
+    }
+});
 
 var storeFigures = function(){
 
@@ -122,8 +178,9 @@ $("#income_statement").on('keydown', 'input', function(e) {
 });
 
 //Calculate when a calculated_field is clicked.
-$(".calculated_field").on("click", storeFigures);
+//$(".calculated_field").on("click", storeFigures);
 
 $('span').change(function(){
     $("#margin_alert").html("Span Field has changed!");
 });
+

@@ -116,3 +116,11 @@ input:focus{
 .expandable {
     font-size: 50%;
 }
+#revenue {
+    text-align: right;
+    cursor: pointer
+}
+
+#income_statement {
+    margin: 0 auto;
+}
