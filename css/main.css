@@ -52,11 +52,11 @@ td:first-child{
     background-color: white;
     margin-right: 10px;
     padding-right: 10px;
-    text-align: right;
+    /*text-align: right;*/
 }
 
 thead th:first-child, tfoot th:first-child{
-    text-align: right;
+    /*text-align: right;*/
     margin-right: 10px;
     padding-right: 10px;
 }
@@ -99,6 +99,9 @@ input {
     font-weight: bold;
 }
 
+th {
+    line-height: 2em;
+}
 .top_border td{
     border-top: 1px solid black;
 }
@@ -123,4 +126,12 @@ input:focus{
 
 #income_statement {
     margin: 0 auto;
+}
+
+.container {
+    max-width: 600px;
+}
+
+table {
+    text-align: left;
 }

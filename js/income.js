@@ -94,10 +94,30 @@ $('.expandable').click(function(){
 
     //Allow clicks of the editable field to allow user to modify the name
     $(".editable_field").on("click", switchToInput);
+    $('input.revenue').change(function(event) {
+
+        //Find the items that have revenue as a calss
+        var items = document.getElementsByClassName("revenue");
+        var count = items.length;
+        var i, sum = 0;
+        for(i = 0; i<count; i++){
+            sum += parseFloat(items[i].value);
+        }
+        //Keep the Revenue figure if no numbers entered
+        if(isNaN(sum)){
+            $('#revenue').html("Revenue");
+        }
+        //Replace the #revenue html with the sum of the figures
+        else {
+            $('#revenue').html(sum);
+        }
+    });
 
 });
 
-$('#revenue').click(function(){
+// CREATE FUNCTION FOR SUMMING THE CONTRIBUTORS. SEPARATELY, CALL THOSE FUNCTIONS WITH THE PROPER CLASS NAMES AND HTML
+
+/*$('#revenue').click(function(){
     //Find the items that have revenue as a calss
     var items = document.getElementsByClassName("revenue");
     var count = items.length;
@@ -113,7 +133,7 @@ $('#revenue').click(function(){
     else {
         $('#revenue').html(sum);
     }
-});
+});*/
 
 $('#cos').click(function(){
     //Find the items that have cos as a class
@@ -180,7 +200,43 @@ $("#income_statement").on('keydown', 'input', function(e) {
 //Calculate when a calculated_field is clicked.
 //$(".calculated_field").on("click", storeFigures);
 
-$('span').change(function(){
-    $("#margin_alert").html("Span Field has changed!");
-});
+var sumRevenue = function() {
+    alert("called");
+    //Find the items that have revenue as a calss
+    var items = document.getElementsByClassName("revenue");
+    var count = items.length;
+    var i, sum = 0;
+    for(i = 0; i<count; i++){
+        sum += parseFloat(items[i].value);
+    }
+    //Keep the Revenue figure if no numbers entered
+    if(isNaN(sum)){
+        $('#revenue').html("Revenue");
+    }
+    //Replace the #revenue html with the sum of the figures
+    else {
+        $('#revenue').html(sum);
+    }
+};
 
+$("input.revenue").change(sumRevenue());
+/*
+$('input.revenue').change(function(event) {
+
+    //Find the items that have revenue as a calss
+    var items = document.getElementsByClassName("revenue");
+    var count = items.length;
+    var i, sum = 0;
+    for(i = 0; i<count; i++){
+        sum += parseFloat(items[i].value);
+    }
+    //Keep the Revenue figure if no numbers entered
+    if(isNaN(sum)){
+        $('#revenue').html("Revenue");
+    }
+    //Replace the #revenue html with the sum of the figures
+    else {
+        $('#revenue').html(sum);
+    }
+});
+*/
