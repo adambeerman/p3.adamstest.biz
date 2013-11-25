@@ -149,7 +149,6 @@ input:focus{
 }
 #revenue, #cos, #op_ex, #other_ex {
     text-align: right;
-    cursor: pointer
 }
 
 #income_statement {

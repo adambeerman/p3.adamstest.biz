@@ -1,41 +1,121 @@
 /**
  * Created with JetBrains PhpStorm.
  * User: adam
- * Date: 11/10/13
- * Time: 2:07 PM
+ * Date: 11/24/13
+ * Time: 4:25 PM
  * To change this template use File | Settings | File Templates.
  */
 
-var switchToInput = function () {
-    //create variable $input that contains the previous text contents
-    var $input = $("<input>", {
-        val: $(this).text(),
-        type: "text"
-    });
-    $input.addClass("editable_field");
-    $(this).children().replaceWith($input);
-    $input.select();
+var sumContents = function($className) {
 
-    //revert back to span when leaving the field
-    $input.on("blur", switchToSpan);
+    //Find the items that have revenue as a calss
+    var items = document.getElementsByClassName($className);
+    var count = items.length;
+    var i, sum = 0;
+    for(i = 0; i<count; i++){
+        sum += parseFloat(accounting.unformat(items[i].value));
+    }
+
+    var $fnCall = "#"+ $className;
+    //Keep the Revenue figure if no numbers entered
+    if(isNaN(sum)){
+        $($fnCall).html($className);
+    }
+    //Replace the #revenue html with the sum of the figures
+    else {
+        $($fnCall).html(accounting.formatMoney(sum));
+    }
 };
 
-var switchToSpan = function () {
-    //Create variable $span that contains the entered values
-    var $span = $("<span>", {
-        text: $(this).val()
-    });
+var profitCalc = function() {
+    var rev = accounting.unformat($('#revenue').html());
+    var cos = accounting.unformat($('#cos').html());
+    var op_ex = accounting.unformat($('#op_ex').html());
+    var other_ex = accounting.unformat($('#other_ex').html());
 
-    $span.addClass("editable_field");
-    $(this).replaceWith($span);
+    //If the values aren't NaN's, then we can begin calculating the profits and margins
 
-    //When clicked again, the span will change to input
-    $span.on("click", switchToInput);
+    $("#gross_profit").html("Gross Profit");
+    $("#gross_margin").html("Gross Margin");
+    $("#op_profit").html("Operating Profit");
+    $("#op_margin").html("Operating Margin");
+    $("#net_profit").html("Net Profit");
+    $("#net_margin").html("Net Margin");
 
-}
+    if(rev != 0){
+        console.log(rev);
+        console.log(cos);
+        console.log(op_ex);
+        console.log(other_ex);
+        if(cos != 0){
+            console.log("second loop");
+            var p = rev - cos;
+            var m = Math.round(p/rev*100*10)/10;
+            $("#gross_profit").html(accounting.formatMoney(p));
+            $("#gross_margin").html(m+ " %");
 
-// Change to input field when clicked
-$(".editable_field").on("click", switchToInput);
+            if(op_ex != 0){
+                var o = p - op_ex;
+                var om = Math.round(o/rev * 100*10)/10;
+                $("#op_profit").html(accounting.formatMoney(o));
+                $("#op_margin").html(om+ " %");
+
+                if(other_ex != 0){
+
+                    var ot = o - other_ex;
+                    var otm = Math.round(ot/rev*100*10)/10;
+                    $("#net_profit").html(accounting.formatMoney(ot));
+                    $("#net_margin").html(otm+ " %");
+                }
+            }
+        }
+    }
+
+};
+
+/* ---------------------
+ When entries are updated, corresponding "total" is updated as well
+ -------------------- */
+
+// On revenue change, sum the contents of the Revenue fields
+$('input.revenue').change(function(){
+    sumContents("revenue");
+});
+
+// On cost of sales change, sum the contents of the Cost of Sales Fields
+$('input.cos').change(function(){
+    sumContents("cos");
+});
+
+// On Op Ex change, sum the contents of the Op Ex Fields
+$('input.op_ex').change(function(){
+    sumContents("op_ex");
+});
+
+// On Other Expenses change, sum the contents of the Other Expenses Fields
+$('input.other_ex').change(function(){
+    sumContents("other_ex");
+});
+
+// When ANY input is changed, reformat for accounting purposes, and call the profitCalc function
+$('input').change(function() {
+    var $temp = $(this).val();
+    $(this).val(accounting.formatMoney($temp));
+    profitCalc();
+});
+
+
+/* ---------------------
+When entries are updated, corresponding Profit calculations are updated
+  -------------------- */
+
+//Gross Profit
+$('input.revenue','input.cos').change(function(){
+    sumContents("cos");
+    var $temp = $(this).val();
+    $(this).val(accounting.formatMoney($temp));
+});
+
 
 
 var incrementClass = function($currentClass) {
@@ -46,10 +126,7 @@ var incrementClass = function($currentClass) {
     var old_class = Number($currentClass);
     var new_class = old_class+1;
     return new_class.toString();
-
 }
-
-
 
 $('.expandable').click(function(){
     //Increment up the class and then add the new row before this row
@@ -84,159 +161,63 @@ $('.expandable').click(function(){
     //Create the new row to add with the unique ID and class number
     var $row =
         "<tr class = 'hidden'>" +
-        "<td class = 'editable_field'><span>(click to rename)</span></td>" +
-        "<td class = '"+nth_row+"'>" +
-        "<input placeholder='"+placeholder +"' class = '" + new_class + "'></td>" +
-        "</tr>";
+            "<td class = 'editable_field'><span class = 'editable_field'>(click to rename)</span></td>" +
+            "<td class = '"+nth_row+"'>" +
+            "<input placeholder='"+placeholder +"' class = '" + new_class + "'></td>" +
+            "</tr>";
 
     //Insert the new row before the expandable section
     $(this).parent().before($row);
 
     //Allow clicks of the editable field to allow user to modify the name
-    $(".editable_field").on("click", switchToInput);
-    $('input.revenue').change(function(event) {
-
-        //Find the items that have revenue as a calss
-        var items = document.getElementsByClassName("revenue");
-        var count = items.length;
-        var i, sum = 0;
-        for(i = 0; i<count; i++){
-            sum += parseFloat(items[i].value);
-        }
-        //Keep the Revenue figure if no numbers entered
-        if(isNaN(sum)){
-            $('#revenue').html("Revenue");
-        }
-        //Replace the #revenue html with the sum of the figures
-        else {
-            $('#revenue').html(sum);
-        }
+    //$(".editable_field").on("click", switchToInput);
+    $('input.' + new_class).change(function() {
+        sumContents(new_class);
+        var $temp = $(this).val();
+        $(this).val(accounting.formatMoney($temp));
     });
 
+    $('input').change(function() {
+        var $temp = $(this).val();
+        $(this).val(accounting.formatMoney($temp));
+        profitCalc();
+    });
+
+    $(".editable_field").on("click", switchToInput);
+
 });
 
-// CREATE FUNCTION FOR SUMMING THE CONTRIBUTORS. SEPARATELY, CALL THOSE FUNCTIONS WITH THE PROPER CLASS NAMES AND HTML
+/* ---------------------------
+    Ability to switch the clickable fields between span & input
+    -------------------------- */
 
-/*$('#revenue').click(function(){
-    //Find the items that have revenue as a calss
-    var items = document.getElementsByClassName("revenue");
-    var count = items.length;
-    var i, sum = 0;
-    for(i = 0; i<count; i++){
-        sum += parseFloat(items[i].value);
-    }
-    //Keep the Revenue figure if no numbers entered
-    if(isNaN(sum)){
-        $('#revenue').html("Revenue");
-    }
-    //Replace the #revenue html with the sum of the figures
-    else {
-        $('#revenue').html(sum);
-    }
-});*/
+var switchToInput = function () {
+    //create variable $input that contains the previous text contents
+    var $input = $("<input>", {
+        val: $(this).text(),
+        align: "right"
+    });
+    $input.addClass("editable_field");
+    $(this).children().replaceWith($input);
+    $input.select();
 
-$('#cos').click(function(){
-    //Find the items that have cos as a class
-    var items = document.getElementsByClassName("cos");
-    var count = items.length;
-    var i, sum = 0;
-    for(i = 0; i<count; i++){
-        sum += parseFloat(items[i].value);
-    }
-    //Keep the class figure if no numbers entered
-    if(isNaN(sum)){
-        $('#cos').html("Cost of Sales");
-    }
-    //Replace the #class html with the sum of the figures
-    else {
-        $('#class').html(sum);
-    }
-});
-
-
-//Tab to the next field
-// Unsure why this is working for me - I did not set the tab key to work as an "onkeyup"
-$('input').keyup(function(e) {
-    if (e.keyCode==9) {
-        console.log("Tab pressed!");
-        $(this).next('input').focus();
-    }
-});
-
-var storeFigures = function(){
-
-    $revenue = Number($('#revenue span').text());
-    $cos = Number($('#cos span').text());
-    if(isNaN($revenue)){
-        $('#margin_alert').html("Need revenue figure");
-        setTimeout(clearMarginAlert, 3000);
-    }
-    else if(isNaN($cos)){
-        $('#margin_alert').html("Need cost of sales figure");
-        setTimeout(clearMarginAlert, 3000);
-    }
-    else {
-        $grossMargin= $revenue - $cos;
-        $("#gross_margin span").text($grossMargin);
-        $("#gross_margin span").addClass("dollars");
-    }
-
+    //revert back to span when leaving the field
+    $input.on("blur", switchToSpan);
 };
 
-var clearMarginAlert = function(){
-    $("#margin_alert").html("<br>");
+var switchToSpan = function () {
+    //Create variable $span that contains the entered values
+    var $span = $("<span>", {
+        text: $(this).val()
+    });
+
+    $span.addClass("editable_field");
+    $(this).replaceWith($span);
+
+    //When clicked again, the span will change to input
+    $span.on("click", switchToInput);
+
 }
 
-$("#income_statement").on('keydown', 'input', function(e) {
-    var keyCode = e.keyCode || e.which;
-
-    if (keyCode == 9) {
-        e.preventDefault();
-        // call custom function here
-        $('span').next().select();
-    }
-});
-
-//Calculate when a calculated_field is clicked.
-//$(".calculated_field").on("click", storeFigures);
-
-var sumRevenue = function() {
-    alert("called");
-    //Find the items that have revenue as a calss
-    var items = document.getElementsByClassName("revenue");
-    var count = items.length;
-    var i, sum = 0;
-    for(i = 0; i<count; i++){
-        sum += parseFloat(items[i].value);
-    }
-    //Keep the Revenue figure if no numbers entered
-    if(isNaN(sum)){
-        $('#revenue').html("Revenue");
-    }
-    //Replace the #revenue html with the sum of the figures
-    else {
-        $('#revenue').html(sum);
-    }
-};
-
-$("input.revenue").change(sumRevenue());
-/*
-$('input.revenue').change(function(event) {
-
-    //Find the items that have revenue as a calss
-    var items = document.getElementsByClassName("revenue");
-    var count = items.length;
-    var i, sum = 0;
-    for(i = 0; i<count; i++){
-        sum += parseFloat(items[i].value);
-    }
-    //Keep the Revenue figure if no numbers entered
-    if(isNaN(sum)){
-        $('#revenue').html("Revenue");
-    }
-    //Replace the #revenue html with the sum of the figures
-    else {
-        $('#revenue').html(sum);
-    }
-});
-*/
+// Change to input field when clicked
+$(".editable_field").on("click", switchToInput);
