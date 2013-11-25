@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a2b8702-b470-42d6-8230-bbc73a6b83d2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/accounting.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/functions.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.css" afterPath="$PROJECT_DIR$/css/bootstrap.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/income2.js" afterPath="$PROJECT_DIR$/js/income2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
@@ -12,10 +9,10 @@
     </list>
     <ignored path="p3.adamstest.biz.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385323613106" ignored="false" />
+    <file path="/Dummy.txt" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385390875956" ignored="false" />
     <file path="/index.html" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1383858968316" ignored="false" />
     <file path="/index.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385346324187" ignored="false" />
-    <file path="/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385344378555" ignored="false" />
+    <file path="/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385396822224" ignored="false" />
     <file path="/calculator.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1383881168755" ignored="false" />
     <file path="$PROJECT_DIR$/../p2.adamstest.biz/controllers/c_posts.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384016543213" ignored="false" />
     <file path="/functions.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384025558960" ignored="false" />
@@ -26,7 +23,7 @@
     <file path="$PROJECT_DIR$/../card-o-matic/css/features.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384089318150" ignored="false" />
     <file path="/features.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384089304995" ignored="false" />
     <file path="/income.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385328906980" ignored="false" />
-    <file path="/income2.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385353348224" ignored="false" />
+    <file path="/income2.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385395472748" ignored="false" />
     <file path="/bootstrap.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385344098595" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +47,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="45" selection-start="4404" selection-end="4404" vertical-scroll-proportion="-4.602941">
+            <state line="117" column="56" selection-start="4681" selection-end="4681" vertical-scroll-proportion="-17.5">
               <folding />
             </state>
           </provider>
@@ -59,18 +56,16 @@
       <file leaf-file-name="income.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/income.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="1" selection-start="876" selection-end="876" vertical-scroll-proportion="25.363636">
-              <folding>
-                <element signature="e#0#157#0" expanded="false" />
-              </folding>
+            <state line="34" column="1" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="income2.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="income2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/income2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="45" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.83756346">
+            <state line="52" column="47" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#157#0" expanded="false" />
               </folding>
@@ -81,16 +76,16 @@
       <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2307" column="18" selection-start="42273" selection-end="42273" vertical-scroll-proportion="20.307692">
+            <state line="2307" column="18" selection-start="42273" selection-end="42273" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="17" selection-start="1020" selection-end="1020" vertical-scroll-proportion="-16.961538">
+            <state line="125" column="22" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.58670986">
               <folding />
             </state>
           </provider>
@@ -99,10 +94,8 @@
       <file leaf-file-name="accounting.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/accounting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="366" column="18" selection-start="13676" selection-end="13679" vertical-scroll-proportion="-102.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="366" column="18" selection-start="13676" selection-end="13679" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,9 +145,9 @@
         <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/js/accounting.js" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/js/income2.js" />
+        <option value="$PROJECT_DIR$/css/main.css" />
       </list>
     </option>
   </component>
@@ -249,8 +242,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../card-o-matic" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -296,7 +289,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27717844" sideWeight="0.6706587" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2821577" sideWeight="0.6706587" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -442,49 +435,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2307" column="18" selection-start="42273" selection-end="42273" vertical-scroll-proportion="20.307692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="17" selection-start="1020" selection-end="1020" vertical-scroll-proportion="-16.961538">
+        <state line="2307" column="18" selection-start="42273" selection-end="42273" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/income.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="1" selection-start="876" selection-end="876" vertical-scroll-proportion="25.363636">
-          <folding>
-            <element signature="e#0#157#0" expanded="false" />
-          </folding>
+        <state line="34" column="1" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/accounting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="18" selection-start="13676" selection-end="13679" vertical-scroll-proportion="-102.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="366" column="18" selection-start="13676" selection-end="13679" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="45" selection-start="4404" selection-end="4404" vertical-scroll-proportion="-4.602941">
+        <state line="117" column="56" selection-start="4681" selection-end="4681" vertical-scroll-proportion="-17.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/income2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="45" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.83756346">
+        <state line="52" column="47" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#157#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="22" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.58670986">
+          <folding />
         </state>
       </provider>
     </entry>

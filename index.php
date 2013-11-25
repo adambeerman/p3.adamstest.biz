@@ -59,7 +59,9 @@
                 </tr>
                 <tr>
                     <td class = "editable_field"><span>Component</span></td>
-                    <td id = "cos_comp_1" class = "1"><input placeholder="Cost of Sales" class = "cos" name="cos_comp_1"></td>
+                    <td id = "cos_comp_1" class = "1">
+                        <input placeholder="Cost of Sales" class = "cos" name="cos_comp_1">
+                    </td>
                 </tr>
                 <tr class = "new_row">
                     <td class = "cost"></td>
@@ -85,7 +87,7 @@
                 </tr>
                 <tr>
                     <td class = "editable_field"><span>Component</span></td>
-                    <td id = op_ex_comp_1 class = "editable_field">
+                    <td id = op_ex_comp_1 class = "1">
                         <input placeholder="Operating Expense" class = "op_ex" name="op_ex_1">
                     </td>
                 </tr>
@@ -113,7 +115,7 @@
                 </tr>
                 <tr>
                     <td class = "editable_field"><span>Component</span></td>
-                    <td id = "other_expenses" class = "editable_field">
+                    <td id = "other_expenses" class = "1">
                         <input placeholder="Other Expenses" class = "other_ex" name="other_ex_1">
                     </td>
                 </tr>

@@ -121,13 +121,19 @@ th {
     background-color: lightgray;
     border: 1px solid white;
 }
+
+th:last-child{
+    text-align: center;
+}
 .top_border td{
     border-top: 1px solid darkgray;
     background-color: white;
+    text-align: right;
 }
 .bottom_border td{
     border-bottom: 1px solid darkgray;
     background-color: white;
+    text-align: right;
 }
 .italic {
     font-style: italic;

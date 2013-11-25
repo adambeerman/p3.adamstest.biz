@@ -42,23 +42,28 @@ var profitCalc = function() {
     $("#net_profit").html("Net Profit");
     $("#net_margin").html("Net Margin");
 
-    if(!isNaN(rev)){
-        if(!isNaN(cos) && rev !=  0){
+    if(rev != 0){
+        console.log(rev);
+        console.log(cos);
+        console.log(op_ex);
+        console.log(other_ex);
+        if(cos != 0){
+            console.log("second loop");
             var p = rev - cos;
-            var m = (p/rev*100);
+            var m = Math.round(p/rev*100*10)/10;
             $("#gross_profit").html(accounting.formatMoney(p));
             $("#gross_margin").html(m+ " %");
 
-            if(!isNaN(op_ex)){
+            if(op_ex != 0){
                 var o = p - op_ex;
-                var om = o / rev * 100;
+                var om = Math.round(o/rev * 100*10)/10;
                 $("#op_profit").html(accounting.formatMoney(o));
                 $("#op_margin").html(om+ " %");
 
-                if(!isNaN(other_ex)){
+                if(other_ex != 0){
 
                     var ot = o - other_ex;
-                    var otm = ot/rev*100;
+                    var otm = Math.round(ot/rev*100*10)/10;
                     $("#net_profit").html(accounting.formatMoney(ot));
                     $("#net_margin").html(otm+ " %");
                 }
@@ -156,7 +161,7 @@ $('.expandable').click(function(){
     //Create the new row to add with the unique ID and class number
     var $row =
         "<tr class = 'hidden'>" +
-            "<td class = 'editable_field'><span>(click to rename)</span></td>" +
+            "<td class = 'editable_field'><span class = 'editable_field'>(click to rename)</span></td>" +
             "<td class = '"+nth_row+"'>" +
             "<input placeholder='"+placeholder +"' class = '" + new_class + "'></td>" +
             "</tr>";
@@ -171,6 +176,8 @@ $('.expandable').click(function(){
         var $temp = $(this).val();
         $(this).val(accounting.formatMoney($temp));
     });
+
+    $(".editable_field").on("click", switchToInput);
 
 });
 
