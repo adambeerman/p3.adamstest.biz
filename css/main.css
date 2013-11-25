@@ -44,25 +44,34 @@ td {
     /*background-color: lightgray;*/
     margin: 1px;
     width: 150px;
+    border-right: 1px solid white;
 }
+
+
 
 td:first-child{
     text-emphasis: black;
-    font-size: 18px;
-    background-color: white;
     margin-right: 10px;
     padding-right: 10px;
+    padding-left: 5px;
+    width: 300px;
     /*text-align: right;*/
+}
+
+td:first-child input {
+    float: right;
 }
 
 thead th:first-child, tfoot th:first-child{
     /*text-align: right;*/
+    padding-left: 5px;
     margin-right: 10px;
     padding-right: 10px;
+    border-left: none;
 }
 
-tfoot{
-    /*color: dimgray;*/
+thead th:last-child {
+    text-align: center;
 }
 
 span, .editable_field {
@@ -92,24 +101,37 @@ input {
 .dollars:before { content:'$'; }
 
 .blank {
-    background-color: white;
 }
 
 .total {
     font-weight: bold;
 }
 
+table {
+    text-align: left;
+    background-color: #e5e5e5;
+}
+
+td {
+    background-color: #e5e5e5;
+}
+
 th {
     line-height: 2em;
+    background-color: lightgray;
+    border: 1px solid white;
 }
 .top_border td{
-    border-top: 1px solid black;
+    border-top: 1px solid darkgray;
+    background-color: white;
 }
 .bottom_border td{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid darkgray;
+    background-color: white;
 }
 .italic {
     font-style: italic;
+    line-height: 1.5em;
 }
 
 input:focus{
@@ -119,7 +141,7 @@ input:focus{
 .expandable {
     font-size: 50%;
 }
-#revenue {
+#revenue, #cos, #op_ex, #other_ex {
     text-align: right;
     cursor: pointer
 }
@@ -132,6 +154,9 @@ input:focus{
     max-width: 600px;
 }
 
-table {
-    text-align: left;
+.empty {
+    background-color: white;
+}
+.calculated_field {
+    text-decoration: underline;
 }

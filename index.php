@@ -14,7 +14,7 @@
         <h3>Income Statement Builder</h3>
 
         <!-- establish a blank line between each section -->
-        <?php $blank_line = "<tr><td></td><td class = 'blank'></td></tr>"; ?>
+        <?php $blank_line = "<tr><td class = 'empty'></td><td class = 'empty'></td></tr>"; ?>
 
         <div>
             <table>
@@ -36,7 +36,7 @@
 
 
                 <tr>
-                    <td class = "italic">Revenue</td>
+                    <td class = "total italic">Revenue</td>
                     <td class = "blank"></td>
                 </tr>
                 <tr>
@@ -54,11 +54,11 @@
                 </tr>
                 <?=$blank_line?>
                 <tr>
-                    <td class = "italic">Cost of Sales</td>
+                    <td class = "italic total">Cost of Sales</td>
                     <td class = "blank"></td>
                 </tr>
                 <tr>
-                    <td class = "editable_field">component</td>
+                    <td class = "editable_field"><span>Component</span></td>
                     <td id = "cos_comp_1" class = "1"><input placeholder="Cost of Sales" class = "cos" name="cos_comp_1"></td>
                 </tr>
                 <tr class = "new_row">
@@ -80,11 +80,11 @@
                 </tr>
                 <?=$blank_line?>
                 <tr>
-                    <td>Operating Expenses</td>
+                    <td class = "italic total">Operating Expenses</td>
                     <td class = "blank"></td>
                 </tr>
                 <tr>
-                    <td>component</td>
+                    <td class = "editable_field"><span>Component</span></td>
                     <td id = op_ex_comp_1 class = "editable_field">
                         <input placeholder="Operating Expense" class = "op_ex" name="op_ex_1">
                     </td>
@@ -108,7 +108,11 @@
                 </tr>
                 <tr></tr>
                 <tr>
-                    <td>Other Expenses</td>
+                    <td class = "italic total">Other Expenses</td>
+                    <td class = "blank"></td>
+                </tr>
+                <tr>
+                    <td class = "editable_field"><span>Component</span></td>
                     <td id = "other_expenses" class = "editable_field">
                         <input placeholder="Other Expenses" class = "other_ex" name="other_ex_1">
                     </td>
@@ -118,39 +122,21 @@
                     <td class = "expandable blank 2"><span>[+]</span></td>
                 </tr>
                 <tr>
-                    <td class = "otherex">Net Profit</td>
-                    <td id = "profit" class = "calculated_field"><span>Net Profit</span></td>
+                    <td class = "total">Total Operating Expenses</td>
+                    <td id = "other_ex" class = "calculated_field"><span>Other Expenses</span></td>
+                </tr>
+                <?=$blank_line?>
+                <tr class = "top_border italic">
+                    <td>Net Profit</td>
+                    <td id = net_profit class = "calculated_field"><span>Net Profit</span></td>
+                </tr>
+                <tr class = "bottom_border italic">
+                    <td>Net Margin</td>
+                    <td id = net_margin class = "calculated_field"><span>Net Margin</span></td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
-
-        <div id = "margin_alert"><br></div>
-        <button onclick = "storeFigures()">Calculate Margin!</button>
-        <br>
-
-
-
-
-        <!-- <h4>Revenue</h4>
-        <div id ="revenue">
-            <h5>components</h5>
-        </div>
-
-        <h4>Cost of Sales</h4>
-        <div id = "cos">
-            <h5>components</h5>
-        </div>
-        <h4>Gross Margin</h4>
-        <div id="gross_margin">
-            <h5>0</h5>
-        </div>
-        <h4>Operating Expenses</h4>
-        <div id = "op_ex">
-            <h5>components</h5>
-        </div> -->
-
     </div>
 </div>
 
@@ -212,5 +198,6 @@
     <script src = "/js/stocks.js"></script>
     -->
     <script src = "/js/income2.js"></script>
+    <script src = "/js/accounting.js"></script>
 </body>
 </html>
