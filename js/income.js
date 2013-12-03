@@ -6,9 +6,10 @@
  * To change this template use File | Settings | File Templates.
  */
 
+
 var sumContents = function($className) {
 
-    //Find the items that have revenue as a calss
+    //Find the items that have revenue as a class
     var items = document.getElementsByClassName($className);
     var count = items.length;
     var i, sum = 0;
@@ -43,12 +44,7 @@ var profitCalc = function() {
     $("#net_margin").html("Net Margin");
 
     if(rev != 0){
-        console.log(rev);
-        console.log(cos);
-        console.log(op_ex);
-        console.log(other_ex);
         if(cos != 0){
-            console.log("second loop");
             var p = rev - cos;
             var m = Math.round(p/rev*100*10)/10;
             $("#gross_profit").html(accounting.formatMoney(p));
@@ -193,11 +189,21 @@ $('.expandable').click(function(){
 
 var switchToInput = function () {
     //create variable $input that contains the previous text contents
+    //console.log($(this).attr("class"));
+    if(($(this).attr("class").indexOf("year"))>0){
+        var $class = "year";
+    }
+    else {
+        var $class = [];
+    }
+
+
     var $input = $("<input>", {
         val: $(this).text(),
+        class: $class,
         align: "right"
     });
-    $input.addClass("editable_field");
+    //$input.addClass("editable_field");
     $(this).children().replaceWith($input);
     $input.select();
 
@@ -206,12 +212,18 @@ var switchToInput = function () {
 };
 
 var switchToSpan = function () {
+
+    //Special check to remove the characters if the class is a "date"
+    if($(this).attr('class').indexOf("year")>-1){
+        $(this).val(accounting.unformat($(this).val()));
+    }
+
     //Create variable $span that contains the entered values
     var $span = $("<span>", {
         text: $(this).val()
     });
 
-    $span.addClass("editable_field");
+    //$span.addClass("editable_field");
     $(this).replaceWith($span);
 
     //When clicked again, the span will change to input
@@ -221,3 +233,39 @@ var switchToSpan = function () {
 
 // Change to input field when clicked
 $(".editable_field").on("click", switchToInput);
+
+var lockValues = function() {
+
+    //Find the year that user has chosen to rename the document
+    $('h3').html($('.year').text() + " - Income Statement");
+
+    //Convert all the background colors to white & remove the lines & headings
+    $('td').css("background-color", "white");
+    $('tr.new_row').remove();
+    $('th').remove();
+    $(".empty").css("border-bottom", "1em solid white");
+    $(".calculated_field").css("text-decoration", "none");
+    $(".calculated_field").css("text-align", "right");
+
+    //Remove borders around the profits & margins
+    $('.top_border td').css("border", "none");
+    $('.bottom_border td').css("border", "none");
+
+    //Remove cursor view over the spans
+    $('span').css("cursor", "auto");
+
+    //Remove editable features for the final print preview
+    $('td.editable_field').removeClass('editable_field');
+    $('span.editable_field').toggleClass('editable_field');
+    $(".editable_field").on("click","");
+
+    //Underline & bold formats for accounting
+    $("#cos, #op_ex, #other_ex").css("border-bottom","1px solid black");
+    $("#revenue, #cos, #op_ex, #other_ex, #net_profit").css("font-weight", "bold");
+    $("#net_profit").css("border-bottom", "1px double black");
+
+    //Replace inputs with only the values, by finding "each" input in the #income_table
+    $('#income_table').find('input').each(function() {
+        $(this).replaceWith("<span>" + this.value + "</span>");
+    });
+};
