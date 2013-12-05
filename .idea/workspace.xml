@@ -4,11 +4,7 @@
     <list default="true" id="2a2b8702-b470-42d6-8230-bbc73a6b83d2" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/js/calculator.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/js/stocks.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/accounting.js" afterPath="$PROJECT_DIR$/js/accounting.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/income.js" afterPath="$PROJECT_DIR$/js/income.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/income2.js" afterPath="$PROJECT_DIR$/js/income2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
     </list>
     <ignored path="p3.adamstest.biz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,10 +47,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="158" column="30" selection-start="6291" selection-end="6291" vertical-scroll-proportion="-8.68">
+            <state line="3" column="43" selection-start="74" selection-end="74" vertical-scroll-proportion="0.08122744">
               <folding />
             </state>
           </provider>
@@ -120,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="income2.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="income2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/income2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="283" column="0" selection-start="8875" selection-end="8875" vertical-scroll-proportion="0.95137763">
+            <state line="283" column="0" selection-start="8875" selection-end="8875" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -157,9 +153,9 @@
         <option value="$PROJECT_DIR$/../p3b.adamstest.biz/index.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/js/income.js" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/js/accounting.js" />
         <option value="$PROJECT_DIR$/js/income2.js" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -461,13 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="30" selection-start="6291" selection-end="6291" vertical-scroll-proportion="-8.68">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/accounting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="128" column="40" selection-start="3937" selection-end="3940" vertical-scroll-proportion="50.31818">
@@ -488,7 +477,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/income2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="283" column="0" selection-start="8875" selection-end="8875" vertical-scroll-proportion="0.95137763">
+        <state line="283" column="0" selection-start="8875" selection-end="8875" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="43" selection-start="74" selection-end="74" vertical-scroll-proportion="0.08122744">
           <folding />
         </state>
       </provider>

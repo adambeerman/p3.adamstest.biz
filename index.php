@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 <head>
     <title>Income Statement Builder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/bootstrap.css" type = "text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
 
@@ -108,7 +109,6 @@
                     <td>Operating Margin</td>
                     <td id = op_margin class = "calculated_field"><span>Operating Margin</span></td>
                 </tr>
-                <tr></tr>
                 <tr>
                     <td class = "italic total">Other Expenses</td>
                     <td class = "blank"></td>
