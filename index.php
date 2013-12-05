@@ -17,7 +17,7 @@
         <?php $blank_line = "<tr><td class = 'empty'></td><td class = 'empty'></td></tr>"; ?>
 
         <div>
-            <table id = "income_table" class = "tablesorter">
+            <table id = "income_table">
 
                 <thead>
                     <tr>
@@ -49,7 +49,7 @@
                 </tr>
 
                 <tr>
-                    <td class = "total">Total Revenue</td>
+                    <td class = "total summation">Total Revenue</td>
                     <td id = "revenue" class = "calculated_field"><span>Revenue</span></td>
                 </tr>
                 <?=$blank_line?>
@@ -68,7 +68,7 @@
                     <td class = "expandable blank 2"><span>[+]</span></td>
                 </tr>
                 <tr>
-                    <td class = "total">Total Cost of Sales</td>
+                    <td class = "total summation">Total Cost of Sales</td>
                     <td id = "cos" class = "calculated_field"><span>Cost of Sales</span></td>
                 </tr>
                 <?=$blank_line?>
@@ -96,7 +96,7 @@
                     <td class = "expandable blank 2"><span>[+]</span></td>
                 </tr>
                 <tr>
-                    <td class = "total">Total Operating Expenses</td>
+                    <td class = "total summation">Total Operating Expenses</td>
                     <td id = "op_ex" class = "calculated_field"><span>Operating Expenses</span></td>
                 </tr>
                 <?=$blank_line?>
@@ -124,7 +124,7 @@
                     <td class = "expandable blank 2"><span>[+]</span></td>
                 </tr>
                 <tr>
-                    <td class = "total">Total Operating Expenses</td>
+                    <td class = "total summation">Total Operating Expenses</td>
                     <td id = "other_ex" class = "calculated_field"><span>Other Expenses</span></td>
                 </tr>
                 <?=$blank_line?>
@@ -155,7 +155,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src = "/js/income.js"></script>
     <script src = "/js/accounting.js"></script>
+    <script src = "/js/income2.js"></script>
 </body>
 </html>

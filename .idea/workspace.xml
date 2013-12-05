@@ -3,19 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="2a2b8702-b470-42d6-8230-bbc73a6b83d2" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/js/calculator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/income2.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/js/stocks.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/accounting.js" afterPath="$PROJECT_DIR$/js/accounting.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/income.js" afterPath="$PROJECT_DIR$/js/income.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/income2.js" afterPath="$PROJECT_DIR$/js/income2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="p3.adamstest.biz.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386035041103" ignored="false" />
     <file path="/index.html" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1383858968316" ignored="false" />
-    <file path="/index.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386039177202" ignored="false" />
-    <file path="/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385830932181" ignored="false" />
+    <file path="/index.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386212816990" ignored="false" />
+    <file path="/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386213060296" ignored="false" />
     <file path="/calculator.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1383881168755" ignored="false" />
     <file path="$PROJECT_DIR$/../p2.adamstest.biz/controllers/c_posts.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384016543213" ignored="false" />
     <file path="/functions.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384025558960" ignored="false" />
@@ -25,12 +25,13 @@
     <file path="$PROJECT_DIR$/../card-o-matic/index.html" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384088886916" ignored="false" />
     <file path="$PROJECT_DIR$/../card-o-matic/css/features.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384089318150" ignored="false" />
     <file path="/features.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1384089304995" ignored="false" />
-    <file path="/income.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386100919070" ignored="false" />
+    <file path="/income.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386245811769" ignored="false" />
     <file path="/income2.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385397891341" ignored="false" />
     <file path="/bootstrap.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385344098595" ignored="false" />
     <file path="$PROJECT_DIR$/../ClassPractice/index.php" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385399882375" ignored="false" />
     <file path="$PROJECT_DIR$/../p3b.adamstest.biz/css/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1385830111301" ignored="false" />
     <file path="$PROJECT_DIR$/../p3b.adamstest.biz/js/income.js" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386015302707" ignored="false" />
+    <file path="$PROJECT_DIR$/../ClassPractice/main.css" changelist="2a2b8702-b470-42d6-8230-bbc73a6b83d2" time="1386120028790" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="41" selection-start="1274" selection-end="1282" vertical-scroll-proportion="-3.86">
+            <state line="158" column="30" selection-start="6291" selection-end="6291" vertical-scroll-proportion="-8.68">
               <folding />
             </state>
           </provider>
@@ -71,7 +72,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="17" selection-start="1984" selection-end="1997" vertical-scroll-proportion="-7.8846154">
+            <state line="7" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="-4.0384617">
               <folding />
             </state>
           </provider>
@@ -100,16 +101,29 @@
       <file leaf-file-name="accounting.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/accounting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="213" column="40" selection-start="7280" selection-end="7284" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="128" column="40" selection-start="3937" selection-end="3940" vertical-scroll-proportion="50.31818">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="income.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="income.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/income.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="250" column="38" selection-start="7631" selection-end="7631" vertical-scroll-proportion="0.5616883">
+            <state line="368" column="0" selection-start="9339" selection-end="11183" vertical-scroll-proportion="-21.076923">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="income2.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/income2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="283" column="0" selection-start="8875" selection-end="8875" vertical-scroll-proportion="0.95137763">
               <folding />
             </state>
           </provider>
@@ -139,13 +153,13 @@
         <option value="$PROJECT_DIR$/income.js" />
         <option value="$PROJECT_DIR$/main.css" />
         <option value="$PROJECT_DIR$/functions.php" />
-        <option value="$PROJECT_DIR$/js/accounting.js" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/js/income2.js" />
         <option value="$PROJECT_DIR$/../p3b.adamstest.biz/index.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/js/income.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/js/accounting.js" />
+        <option value="$PROJECT_DIR$/js/income2.js" />
       </list>
     </option>
   </component>
@@ -237,7 +251,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="Errors" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p3b.adamstest.biz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ClassPractice" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
@@ -363,13 +377,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/accounting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="18" selection-start="13676" selection-end="13679" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -394,7 +401,9 @@
     <entry file="file://$PROJECT_DIR$/js/accounting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="366" column="18" selection-start="13676" selection-end="13679" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -436,13 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/accounting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="40" selection-start="7280" selection-end="7284" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery-2.0.2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -452,23 +454,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="41" selection-start="1274" selection-end="1282" vertical-scroll-proportion="-3.86">
+        <state line="7" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="-4.0384617">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="17" selection-start="1984" selection-end="1997" vertical-scroll-proportion="-7.8846154">
+        <state line="158" column="30" selection-start="6291" selection-end="6291" vertical-scroll-proportion="-8.68">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/accounting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="40" selection-start="3937" selection-end="3940" vertical-scroll-proportion="50.31818">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/income.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="38" selection-start="7631" selection-end="7631" vertical-scroll-proportion="0.5616883">
+        <state line="368" column="0" selection-start="9339" selection-end="11183" vertical-scroll-proportion="-21.076923">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/income2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="283" column="0" selection-start="8875" selection-end="8875" vertical-scroll-proportion="0.95137763">
           <folding />
         </state>
       </provider>

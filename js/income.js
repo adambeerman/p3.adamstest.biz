@@ -7,6 +7,87 @@
  */
 
 
+/* unformatNumer is a function for stripping entries of any non-numeric values
+    it returns only the number, without any letters.
+ */
+var unformatNumber = function($number) {
+
+    unformattedNumber = $number;
+
+    //reject any values that are not numbers
+    var regex = new RegExp("[^0-9-.]", ["g"]),
+        unformattedNumber = parseFloat(
+            ("" + $number)
+                //.replace(/\((.*)\)/, "-$1") // replace bracketed values with negatives
+                .replace(regex, '')         // strip out any cruft
+        );
+
+    return unformattedNumber;
+
+
+};
+
+var moneyFormat = function ($number) {
+
+    var
+        $symbol = "$",
+        $precision = 2,
+        $thousand = ",",
+        $decimal = ".",
+        $formatPos = "%s%v",
+        $formatNeg = "-%s%v";
+
+    // Choose format for numbers:
+        var $format = $number < 0 ? $formatNeg : $formatPos;
+
+    // Find the base number, and the number of commas required (for thousands placeholders)
+
+    var negative = $number < 0 ? "-" : "",
+        base = Math.round(parseInt($number * 100))/100 + "",
+        comma = base.length > 3 ? base.length % 3 : 0;
+
+    // Get the numbers before and after the decimal place
+    var prefix = base.split('.')[0],
+        suffix = base.split('.')[1];
+
+    // Sort out the numbers after the decimal. Add 0's as appropriate.
+    if(isNaN($number)){
+        return;
+    }
+    else if(isNaN(suffix)){
+        suffix = "00";
+    } else if(suffix.length == 1) {
+        suffix = suffix + "0";
+    }
+
+    //If negative, find absolute value and store a negative placeholder
+    var $neg = "$";
+
+    if(prefix < 0) {
+        $neg = "-$";
+        prefix = Math.abs(prefix);
+    }
+
+
+
+    return($neg + prefix + "." + suffix);
+
+    //var $numberFormatted =  negative + (mod ? base.substr(0, mod) + $thousand : "") + base.substr(mod).replace(/(\d{3})(?=\d)/g, "$1" + $thousand);
+
+    //console.log($format.replace('%s', $symbol).replace('%v', $numberFormatted));
+    // Return with currency symbol added:
+
+    //return $format.replace('%s', $symbol).replace('%v', $numberFormatted);
+
+
+};
+
+var doFormat = function($number) {
+    $number = accounting.unformat($number);
+    $number = accounting.formatMoney($number);
+    return $number;
+}
+
 var sumContents = function($className) {
 
     //Find the items that have revenue as a class
@@ -14,25 +95,27 @@ var sumContents = function($className) {
     var count = items.length;
     var i, sum = 0;
     for(i = 0; i<count; i++){
-        sum += parseFloat(accounting.unformat(items[i].value));
+        sum += parseFloat(unformatNumber(items[i].value));
     }
 
     var $fnCall = "#"+ $className;
+
     //Keep the Revenue figure if no numbers entered
     if(isNaN(sum)){
         $($fnCall).html($className);
     }
+
     //Replace the #revenue html with the sum of the figures
     else {
-        $($fnCall).html(accounting.formatMoney(sum));
+        $($fnCall).html(moneyFormat(sum));
     }
 };
 
 var profitCalc = function() {
-    var rev = accounting.unformat($('#revenue').html());
-    var cos = accounting.unformat($('#cos').html());
-    var op_ex = accounting.unformat($('#op_ex').html());
-    var other_ex = accounting.unformat($('#other_ex').html());
+    var rev = unformatNumber($('#revenue').html());
+    var cos = unformatNumber($('#cos').html());
+    var op_ex = unformatNumber($('#op_ex').html());
+    var other_ex = unformatNumber($('#other_ex').html());
 
     //If the values aren't NaN's, then we can begin calculating the profits and margins
 
@@ -47,20 +130,22 @@ var profitCalc = function() {
         if(cos != 0){
             var p = rev - cos;
             var m = Math.round(p/rev*100*10)/10;
-            $("#gross_profit").html(accounting.formatMoney(p));
+
             $("#gross_margin").html(m+ " %");
+            $("#gross_profit").html(moneyFormat(p));
+
 
             if(op_ex != 0){
                 var o = p - op_ex;
                 var om = Math.round(o/rev * 100*10)/10;
-                $("#op_profit").html(accounting.formatMoney(o));
+                $("#op_profit").html(moneyFormat(o));
                 $("#op_margin").html(om+ " %");
 
                 if(other_ex != 0){
 
                     var ot = o - other_ex;
                     var otm = Math.round(ot/rev*100*10)/10;
-                    $("#net_profit").html(accounting.formatMoney(ot));
+                    $("#net_profit").html(moneyFormat(ot));
                     $("#net_margin").html(otm+ " %");
                 }
             }
@@ -95,9 +180,8 @@ $('input.other_ex').change(function(){
 
 // When ANY input is changed, reformat for accounting purposes, and call the profitCalc function
 $('input').change(function() {
-    var $temp = $(this).val();
-    $(this).val(accounting.formatMoney($temp));
-    profitCalc();
+    $(this).val(doFormat($(this).val()));
+    //profitCalc();
 });
 
 
@@ -105,15 +189,17 @@ $('input').change(function() {
 When entries are updated, corresponding Profit calculations are updated
   -------------------- */
 
-//Gross Profit
+//Gross Profit Calculation
 $('input.revenue','input.cos').change(function(){
     sumContents("cos");
     var $temp = $(this).val();
-    $(this).val(accounting.formatMoney($temp));
+    console.log($temp);
+    $(this).val(moneyFormat($temp));
 });
 
 
-
+//This isn't specifically useful for P3, but the goal is to increment classes when a category
+// has multiple components
 var incrementClass = function($currentClass) {
     //Can only do single digit modifications!!!
     // Need to add functionality to move beyond 9.
@@ -124,10 +210,12 @@ var incrementClass = function($currentClass) {
     return new_class.toString();
 }
 
+//Functionality for clicking the [+] sign to expand the rows.
 $('.expandable').click(function(){
     //Increment up the class and then add the new row before this row
     var myClass = $(this).attr("class");
 
+    //The previous td's class will tell the program what placeholder to use
     var new_class = $(this.previousElementSibling).attr("class");
     switch(new_class) {
         case "rev": new_class = "revenue";
@@ -166,16 +254,14 @@ $('.expandable').click(function(){
     $(this).parent().before($row);
 
     //Allow clicks of the editable field to allow user to modify the name
-    //$(".editable_field").on("click", switchToInput);
     $('input.' + new_class).change(function() {
         sumContents(new_class);
         var $temp = $(this).val();
-        $(this).val(accounting.formatMoney($temp));
+        $(this).val(moneyFormat($temp));
     });
 
     $('input').change(function() {
-        var $temp = $(this).val();
-        $(this).val(accounting.formatMoney($temp));
+        $(this).val(doFormat($(this).val));
         profitCalc();
     });
 
@@ -215,7 +301,7 @@ var switchToSpan = function () {
 
     //Special check to remove the characters if the class is a "date"
     if($(this).attr('class').indexOf("year")>-1){
-        $(this).val(accounting.unformat($(this).val()));
+        $(this).val(unformatNumber($(this).val()));
     }
 
     //Create variable $span that contains the entered values
@@ -243,7 +329,7 @@ var lockValues = function() {
     $('td').css("background-color", "white");
     $('tr.new_row').remove();
     $('th').remove();
-    $(".empty").css("border-bottom", "1em solid white");
+    $(".empty").css("border-bottom", "2em solid white");
     $(".calculated_field").css("text-decoration", "none");
     $(".calculated_field").css("text-align", "right");
 
@@ -257,12 +343,23 @@ var lockValues = function() {
     //Remove editable features for the final print preview
     $('td.editable_field').removeClass('editable_field');
     $('span.editable_field').toggleClass('editable_field');
-    $(".editable_field").on("click","");
+
+    $(".editable_field").on("click",function() {
+        alert("activated");
+    });
 
     //Underline & bold formats for accounting
     $("#cos, #op_ex, #other_ex").css("border-bottom","1px solid black");
+    //$("#cos, #op_ex, #other_ex").css("text-decoration","underline");
     $("#revenue, #cos, #op_ex, #other_ex, #net_profit").css("font-weight", "bold");
     $("#net_profit").css("border-bottom", "1px double black");
+
+    //Reformat the components
+    //Particularly, want the components to be indented
+    $('span').css("float", "none");
+    $('td:first-child:has(span)').css("text-indent", "25px");
+    $('td:first-child:has(span)').css("color", "#787878");
+    $('.summation').css("text-indent", "25px");
 
     //Replace inputs with only the values, by finding "each" input in the #income_table
     $('#income_table').find('input').each(function() {
