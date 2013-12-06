@@ -1,5 +1,14 @@
 /* TABLE FORMATTING */
 
+.span8 {
+    text-align: left;
+}
+
+.span4 {
+    text-align: right;
+}
+
+main.css
 table {
     text-align: left;
     background-color: #F7F7F7;

@@ -6,10 +6,33 @@
  * To change this template use File | Settings | File Templates.
  */
 
+/* -------------------------
+COLLAPSIBLE INTRODUCTION COMMENTS
+---------------------------- */
+
+$('#intro').hover(function(){
+    $('intro').css("border", "20px solid red ");
+});
+
+$('#intro').click(function(){
+    $('#intro').slideToggle();
+    $('h6').slideToggle();
+    $('.bio').hide();
+
+});
+
+$('h6').click(function() {
+    $('h6').slideToggle();
+    $('#intro').slideToggle();
+});
+
+/* -------------------------
+ sumContents() is a function for summing all contents of a given class name
+ ---------------------------- */
 
 var sumContents = function($className) {
 
-    //Find the items that have revenue as a class
+    //Find the items that have the associated class=
     var items = document.getElementsByClassName($className);
     var count = items.length;
     var i, sum = 0;
@@ -17,7 +40,7 @@ var sumContents = function($className) {
         sum += parseFloat(accounting.unformat(items[i].value));
     }
 
-    var $fnCall = "#"+ $className;
+    var $fnCall = "#"+ $className + "_sum";
     //Keep the Revenue figure if no numbers entered
     if(isNaN(sum)){
         $($fnCall).html($className);
@@ -28,11 +51,16 @@ var sumContents = function($className) {
     }
 };
 
+/* -------------------------
+ profitCalc() is a function for re-calculating the profits and margins based on
+ available income statement information
+ ---------------------------- */
+
 var profitCalc = function() {
-    var rev = accounting.unformat($('#revenue').html());
-    var cos = accounting.unformat($('#cos').html());
-    var op_ex = accounting.unformat($('#op_ex').html());
-    var other_ex = accounting.unformat($('#other_ex').html());
+    var rev = accounting.unformat($('#revenue_sum').html());
+    var cos = accounting.unformat($('#cos_sum').html());
+    var op_ex = accounting.unformat($('#opex_sum').html());
+    var other_ex = accounting.unformat($('#otherex_sum').html());
 
     //If the values aren't NaN's, then we can begin calculating the profits and margins
 
@@ -42,6 +70,7 @@ var profitCalc = function() {
     $("#op_margin").html("Operating Margin");
     $("#net_profit").html("Net Profit");
     $("#net_margin").html("Net Margin");
+
 
     if(rev != 0){
         if(cos != 0){
@@ -70,141 +99,104 @@ var profitCalc = function() {
 };
 
 /* ---------------------
- When entries are updated, corresponding "total" is updated as well
+ Listener to find when an input value is changed
+ It will call the profitCalc and sumContent functions
  -------------------- */
 
-// On revenue change, sum the contents of the Revenue fields
-$('input.revenue').change(function(){
-    sumContents("revenue");
-});
+$('input').change(function(){
 
-// On cost of sales change, sum the contents of the Cost of Sales Fields
-$('input.cos').change(function(){
-    sumContents("cos");
-});
+    //Reformat the entry as currency using an outside accounting JS plugin
+    var $moneyPlaceholder = $(this).val();
+    $(this).val(accounting.formatMoney($moneyPlaceholder));
 
-// On Op Ex change, sum the contents of the Op Ex Fields
-$('input.op_ex').change(function(){
-    sumContents("op_ex");
-});
-
-// On Other Expenses change, sum the contents of the Other Expenses Fields
-$('input.other_ex').change(function(){
-    sumContents("other_ex");
-});
-
-// When ANY input is changed, reformat for accounting purposes, and call the profitCalc function
-$('input').change(function() {
-    var $temp = $(this).val();
-    $(this).val(accounting.formatMoney($temp));
+    sumContents($(this).attr("class"));
     profitCalc();
 });
 
+/* -----------------------
+    This function gives functionality to the "[+]" icons on the right-hand columns.
+    [+]'s are given the "expandable_right" class
+ ----------------------- */
 
-/* ---------------------
- When entries are updated, corresponding Profit calculations are updated
- -------------------- */
+$('.expandable_right').click(function(){
 
-//Gross Profit
-$('input.revenue','input.cos').change(function(){
-    sumContents("cos");
-    var $temp = $(this).val();
-    $(this).val(accounting.formatMoney($temp));
-});
+    //Determine the id of the main div (i.e. find id of parent of parent of parent)
+    var myClass = $(this).parent().parent().parent().attr("id");
 
-
-
-var incrementClass = function($currentClass) {
-    //Can only do single digit modifications!!!
-    // Need to add functionality to move beyond 9.
-
-    //Current number class
-    var old_class = Number($currentClass);
-    var new_class = old_class+1;
-    return new_class.toString();
-}
-
-$('.expandable').click(function(){
-    //Increment up the class and then add the new row before this row
-    var myClass = $(this).attr("class");
-
-    var new_class = $(this.previousElementSibling).attr("class");
-    switch(new_class) {
-        case "rev": new_class = "revenue";
+    //Generate the Placeholder value given the myClass value
+    switch(myClass) {
+        case "revenue":
             var placeholder = "Revenue";
             break;
-        case "cost": new_class = "cos";
-            var placeholder = "Cost of Sales";
+        case "cos":
+            var placeholder = "Cost of Goods";
             break;
-        case "opex": new_class = "op_ex";
-            var placeholder = "Operating Expense";
+        case "opex":
+            var placeholder = "Op Ex";
             break;
-        case "otherex": new_class = "other_ex";
+        case "otherex":
             var placeholder = "Other Expenses";
         default:
             break;
     }
 
-    // Determine the length of the 'class' string - functionality only works for single digits.
-    var len = myClass.length-1;
+    //Create the new rows to be inserted
+    //row_left is for the left-hand column
+    //row_right is for the right-hand column
 
-    //Extract the first element of the current class to determine what the new row will be called
-    var nth_row = Number(myClass.charAt(len));
+    var $row_left =
+        "<span class = 'editable_field'>Component - click to rename<input class = 'hidden'></span><br>";
+    var $row_right =
+        "<span><input placeholder='" + placeholder + "' class = '" + myClass + "'></span><br>";
 
-    //Increment the class number on the expandable row
-    $(this).switchClass(myClass.charAt(len),incrementClass(myClass.charAt(len)));
-
-    //Create the new row to add with the unique ID and class number
-    var $row =
-        "<tr class = 'hidden'>" +
-            "<td class = 'editable_field'><span class = 'editable_field'>(click to rename)</span></td>" +
-            "<td class = '"+nth_row+"'>" +
-            "<input placeholder='"+placeholder +"' class = '" + new_class + "'></td>" +
-            "</tr>";
 
     //Insert the new row before the expandable section
-    $(this).parent().before($row);
+    $($row_right).insertBefore("#"+myClass+" .expandable_right");
+    $($row_left).insertBefore("#"+myClass+"  .expandable_left");
 
-    //Allow clicks of the editable field to allow user to modify the name
-    //$(".editable_field").on("click", switchToInput);
-    $('input.' + new_class).change(function() {
-        sumContents(new_class);
-        var $temp = $(this).val();
-        $(this).val(accounting.formatMoney($temp));
-    });
+    //Re-initiate the listener functionality for when the new inputs are modified
+    $('input').change(function(){
 
-    $('input').change(function() {
-        var $temp = $(this).val();
-        $(this).val(accounting.formatMoney($temp));
+        //Reformat the entry as currency using an outside accounting JS plugin
+        var $moneyPlaceholder = $(this).val();
+        $(this).val(accounting.formatMoney($moneyPlaceholder));
+
+        sumContents($(this).attr("class"));
         profitCalc();
     });
 
+    //Re-initiate the clickability of editable field
     $(".editable_field").on("click", switchToInput);
 
 });
 
 /* ---------------------------
- Ability to switch the clickable fields between span & input
+ Functionality that allows editable fields to change between inputs and spans
  -------------------------- */
 
 var switchToInput = function () {
+
+    //The div parent id will contain the necessary class name
+    var $myID = $(this).parent().parent().parent().attr("id");
+
+    //Initiate editable functionality
+    $updatedClass = $myID + " editable_field";
+
+    //If the "year" class has been accessed, need to maintain that class
+    if($(this).hasClass("year")){
+        $updatedClass += " year";
+    }
+
     //create variable $input that contains the previous text contents
-    //console.log($(this).attr("class"));
-    if(($(this).attr("class").indexOf("year"))>0){
-        var $class = "year";
-    }
-    else {
-        var $class = [];
-    }
-
-
     var $input = $("<input>", {
         val: $(this).text(),
-        class: $class,
+        class: $updatedClass,
         align: "right"
     });
-    //$input.addClass("editable_field");
-    $(this).children().replaceWith($input);
+
+    $(this).replaceWith($input);
+
+    //Make sure the new input value has been selected
     $input.select();
 
     //revert back to span when leaving the field
@@ -213,14 +205,20 @@ var switchToInput = function () {
 
 var switchToSpan = function () {
 
-    //Special check to remove the characters if the class is a "date"
-    if($(this).attr('class').indexOf("year")>-1){
+    $updatedClass = "editable_field";
+
+    //If the "year" class has been accessed, need to maintain that class
+    //Also remove any characters that are not numbers
+    if($(this).hasClass("year")){
         $(this).val(accounting.unformat($(this).val()));
+        $updatedClass += " year";
     }
+
 
     //Create variable $span that contains the entered values
     var $span = $("<span>", {
-        text: $(this).val()
+        text: $(this).val(),
+        class: $updatedClass
     });
 
     //$span.addClass("editable_field");
@@ -234,50 +232,66 @@ var switchToSpan = function () {
 // Change to input field when clicked
 $(".editable_field").on("click", switchToInput);
 
-
+/* -------------------------
+    lockValues() is used to convert to the final printable view
+ --------------------------- */
 var lockValues = function() {
+
+    $('h3').prependTo("#income_statement");
+    $("#income_statement").css("margin", "10px");
 
     //Find the year that user has chosen to rename the document
     $('h3').html($('.year').text() + " - Income Statement");
 
     //Convert all the background colors to white & remove the lines & headings
-    $('td').css("background-color", "white");
-    $('tr.new_row').remove();
-    $('th').remove();
-    $(".empty").css("border-bottom", "2em solid white");
+    $('h6, #intro, #head, #foot, .bio').hide();
+    $('.expandable_left, .expandable_right').remove();
     $(".calculated_field").css("text-decoration", "none");
     $(".calculated_field").css("text-align", "right");
+    $('.row-fluid').css("background-color", "white");
 
-    //Remove borders around the profits & margins
-    $('.top_border td').css("border", "none");
-    $('.bottom_border td').css("border", "none");
 
     //Remove cursor view over the spans
     $('span').css("cursor", "auto");
 
     //Remove editable features for the final print preview
-    $('td.editable_field').removeClass('editable_field');
-    $('span.editable_field').toggleClass('editable_field');
+    $('.editable_field').toggleClass('editable_field');
 
-    $(".editable_field").on("click",function() {
-        alert("activated");
-    });
+    //Formatting Updates
+    $('.summation').css("text-indent", "25px");
+    $('.summation').css("color", "black");
+
 
     //Underline & bold formats for accounting
-    $("#cos, #op_ex, #other_ex").css("border-bottom","1px solid black");
-    //$("#cos, #op_ex, #other_ex").css("text-decoration","underline");
-    $("#revenue, #cos, #op_ex, #other_ex, #net_profit").css("font-weight", "bold");
-    $("#net_profit").css("border-bottom", "1px double black");
-
-    //Reformat the components
-    //Particularly, want the components to be indented
-    $('span').css("float", "none");
-    $('td:first-child:has(span)').css("text-indent", "25px");
-    $('td:first-child:has(span)').css("color", "#787878");
-    $('.summation').css("text-indent", "25px");
+    //$("#cos, #op_ex, #other_ex").css("border-bottom","1px solid black");
+    $("#net_profit, #gross_profit").css("text-decoration","underline");
+    $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum, #net_profit").css("font-weight", "bold");
+    $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum, #net_profit").css("border-bottom", "1px solid black");
+    $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum, #net_profit").css("color", "black");
 
     //Replace inputs with only the values, by finding "each" input in the #income_table
-    $('#income_table').find('input').each(function() {
+    $('#income_statement').find('input').each(function() {
         $(this).replaceWith("<span>" + this.value + "</span>");
     });
+
+
+    $('#income_statement').find('.summation').each(function() {
+        $(this).replaceWith("<span class = 'sum_final'>"+ this.innerHTML +"</span>");
+    });
+
+    $('#income_statement').find('.revenue, .cos, .opex, .otherex').each(function() {
+        $(this).replaceWith("<span class = 'ind_final'>"+ this.innerHTML +"</span>");
+    });
+
+    $('.span8').find('span').each(function() {
+       $(this).replaceWith("<span class = 'left_indent'>" + this.innerHTML + "</span>");
+    });
+    alert("alert");
+    //Reformat the components
+    //Particularly, want the components to be indented
+    //$('span').css("float", "left");
+    //$('span').css("text-indent", "25px");
+
+
+
 };
