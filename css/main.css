@@ -1,135 +1,124 @@
-/* TABLE FORMATTING */
+/* General Formatting */
 
-.span8 {
-    text-align: left;
+#income_statement {
+    -webkit-box-shadow: 0px 0px 5px rgba(163,147,130,0.75);
+    -moz-box-shadow: 0px 0px 5px rgba(163,147,130,0.75);
+    box-shadow: 0px 0px 5px rgba(163,147,130,0.75);
+    max-width: 600px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
-.span4 {
-    text-align: right;
-}
-
-main.css
-table {
-    text-align: left;
-    background-color: #F7F7F7;
-    box-shadow: 0px 0px 3px rgba(163,147,130,0.75);
-}
-
-th {
-    text-decoration: underline;
-    line-height: 2em;
-    background-color: lightgray;
-    padding-top: 5px;
-}
-
-td {
-    margin: 1px;
-    width: 150px;
-    /*border-right: 1px solid white;*/
-    background-color: #F7F7F7;
-    padding-right: 5px;
-}
-
-td:first-child{
-    text-emphasis: black;
-    margin-right: 10px;
-    padding-right: 10px;
-    padding-left: 5px;
-    width: 250px;
-}
-
-td:first-child input {
-    float: right;
-}
-
-thead th:first-child, tfoot th:first-child{
-    /*text-align: right;*/
-    padding-left: 5px;
-    margin-right: 10px;
-    padding-right: 10px;
-    border-left: none;
-}
-
-thead th:last-child {
-    text-align: center;
-}
-
-th:last-child{
-    text-align: center;
-}
-
-.top_border td{
-    border-top: 1px solid darkgray;
-    background-color: white;
-    text-align: right;
-}
-.bottom_border td{
-    border-bottom: 1px solid darkgray;
-    background-color: white;
-    text-align: right;
-}
-
-/* NON-TABLE FORMATTING */
-
-body {
-    font-family: helvetica;
-}
-
-span, .editable_field {
-    cursor: pointer;
-}
-
-#error_message {
-    color: red;
-}
-
-#margin_alert {
-    color: red;
+div {
+    line-height: 1.5em;
 }
 
 span {
     float: right;
+    position:relative;
+    cursor: pointer;
+    line-height: 1.5em;
 }
 
 input {
     text-align: right;
     width: 145px;
+    float: right;
 }
 
+/* Fluid Row Formatting */
+
+.container {
+    max-width: 500px;
+}
+
+.span8 {
+    text-align: left;
+    line-height: 30px;
+    /*background-color: #f7f7f7;*/
+}
+
+.span4 {
+    text-align: right;
+    line-height: 30px;
+    /*background-color: #e6e6e6;*/
+}
+
+.row-fluid {
+    background-color: #f7f7f7;
+}
+
+/* Specific Features */
+
+.editable_field {
+    cursor: pointer;
+    line-height: 1.5em;
+}
+
+.expandable_right {
+    float: right;
+}
+
+.calculated_field {
+    text-decoration: underline;
+}
+
+#intro h6 {
+    cursor: pointer;
+}
+
+.year:hover {
+    color: red;
+}
+
+
+/* Income Statement Formatting Specific */
+
+.sum_final {
+    color: black;
+    text-align: right;
+}
+
+.left_indent {
+    float: left;
+    text-indent: 25px;
+}
+
+.ind_final {
+    color: darkgray;
+    text-align: right;
+}
 
 .total {
     font-weight: bold;
-    text-alight: right;
+    text-align: right;
 }
-
 
 .italic {
     font-style: italic;
     line-height: 1.5em;
 }
 
-input:focus{
-
+.hidden {
+    display: none;
 }
 
-.expandable {
-    font-size: 50%;
-}
-#revenue, #cos, #op_ex, #other_ex {
-    text-align: right;
+.bold {
+    color: black;
+    font-weight: bold;
 }
 
-#income_statement {
-    margin: 0 auto;
-}
-
-.container {
-    max-width: 600px;
+.blank {
+    line-height: 20px;
+    color: white;
 }
 
 .empty {
     background-color: white;
 }
-.calculated_field {
-    text-decoration: underline;
-}
+
+
+
+
+
