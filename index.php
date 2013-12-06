@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class = "container">
+<div class ="container">
     <h3> Income Statement Builder</h3>
     <h5 class = "bio">JavaScript Application for Harvard Extension CSci E-15<br>
         Instructor: Susan Buck<br>
@@ -61,8 +61,8 @@
             <div class = "row-fluid">
                 <div class = "span8">
                     <span class = "editable_field">Component</span><br>
-                    <span class = "expandable_left">&nbsp</span>
-                    <div>&nbsp</div>
+                    <span class = "expandable_left">&nbsp;</span>
+                    <div>&nbsp;</div>
                     <div><span class = "total summation">Total Revenue</span></div>
 
 
@@ -70,7 +70,7 @@
                 <div class = "span4">
                     <span><input placeholder="Revenue" class = "revenue"></span><br>
                     <span class = "expandable_right">[+]</span>
-                    <div>&nbsp</div>
+                    <div>&nbsp;</div>
                     <div id = "revenue_sum" class = "calculated_field"><span>Revenue</span></div>
                 </div>
             </div>
@@ -81,14 +81,14 @@
             <div class = "row-fluid">
                 <div class = "span8">
                     <span class = "editable_field">Component</span><br>
-                    <span class = "expandable_left">&nbsp</span>
-                    <div>&nbsp</div>
+                    <span class = "expandable_left">&nbsp;</span>
+                    <div>&nbsp;</div>
                     <div><span class = "total summation">Total Cost of Goods Sold</span></div>
                 </div>
                 <div class = "span4">
                     <span><input placeholder="Cost of Goods" class = "cos"></span><br>
                     <span class = "expandable_right">[+]</span>
-                    <div>&nbsp</div>
+                    <div>&nbsp;</div>
                     <div id = "cos_sum" class = "calculated_field"><span>Total Cost of Goods</span></div>
                 </div>
             </div>
@@ -113,14 +113,14 @@
             <div class = "row-fluid">
                 <div class = "span8">
                     <span class = "editable_field">Component</span><br>
-                    <span class = "expandable_left">&nbsp</span>
-                    <div>&nbsp</div>
+                    <span class = "expandable_left">&nbsp;</span>
+                    <div>&nbsp;</div>
                     <div><span class = "total summation">Total Operating Expenses</span></div>
                 </div>
                 <div class = "span4">
                     <span><input placeholder="Op Ex" class = "opex"></span><br>
                     <span class = "expandable_right">[+]</span>
-                    <div>&nbsp</div>
+                    <div>&nbsp;</div>
                     <div id = "opex_sum" class = "calculated_field"><span>Op Ex</span></div>
                 </div>
             </div>
@@ -145,14 +145,14 @@
             <div class = "row-fluid">
                 <div class = "span8">
                     <span class = "editable_field">Component</span><br>
-                    <span class = "expandable_left">&nbsp</span>
-                    <div>&nbsp</div>
+                    <span class = "expandable_left">&nbsp;</span>
+                    <div>&nbsp;</div>
                     <div><span class = "total summation">Total Other Expenses</span></div>
                 </div>
                 <div class = "span4">
                     <span><input placeholder="Other Expenses" class = "otherex"></span><br>
                     <span class = "expandable_right">[+]</span>
-                    <div>&nbsp</div>
+                    <div>&nbsp;</div>
                     <div id = "otherex_sum" class = "calculated_field"><span>Other Expenses</span></div>
                 </div>
             </div>
