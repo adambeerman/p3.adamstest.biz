@@ -266,7 +266,7 @@ var lockValues = function() {
     //$("#cos, #op_ex, #other_ex").css("border-bottom","1px solid black");
     $("#net_profit, #gross_profit").css("text-decoration","underline");
     $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum, #net_profit").css("font-weight", "bold");
-    $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum, #net_profit").css("border-bottom", "1px solid black");
+    $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum").css("border-bottom", "1px solid black");
     $("#revenue_sum, #cos_sum, #opex_sum, #otherex_sum, #net_profit").css("color", "black");
 
     //Replace inputs with only the values, by finding "each" input in the #income_table
